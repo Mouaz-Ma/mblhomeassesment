@@ -5,7 +5,7 @@ const Email = require('../models/email');
 // in a small scale it wont matter but on the larger scale i dont want to load unnecessary info
 module.exports.index = async (req, res) => {
     try {
-        const emails = await Email.find({});
+        const emails = await Email.find({isRead: false});
         const noE = emails.length
         res.json({
             success: true,
